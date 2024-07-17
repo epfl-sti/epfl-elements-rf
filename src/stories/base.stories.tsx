@@ -1,6 +1,9 @@
 import type { StoryObj } from "@storybook/react";
 import { Base } from "../components/Base";
 
+import { Person, BoxArrowRight } from 'react-bootstrap-icons'
+
+
 const meta = {
   title: "Pages/Base",
   component: Base,
@@ -26,10 +29,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+  },
 };
 
-export const WithFeedback: Story = {
+
+// Demo uses Bootstrap Icons
+export const WithFeedbackAndBSIcons: Story = {
   args: {
     breadcrumbItems,
     baseTitle,
@@ -37,6 +43,18 @@ export const WithFeedback: Story = {
     feedBackEmail: "mykompas_administrators@groupes.epfl.ch",
     asideMenuItems: [],
     user,
+    avatarMenuItems: [
+      {
+        icon: <Person  style={{marginRight: '5px'}} />,
+        label: "My profile with BS icon",
+        link: "/profile",
+      },
+      {
+        icon: <BoxArrowRight style={{marginRight: '5px'}} />,
+        label: "Logout with BS icon",
+        link: "/logout",
+      }
+    ],
     children: <h4>Test Application</h4>,
   },
 };
