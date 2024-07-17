@@ -49,6 +49,44 @@ NoTitleNoTotals.args = {
   ]
 }
 
+export const LongTableWithOverflow: Story = {}
+LongTableWithOverflow.args = {
+  overflow: true,
+  height: 200,
+  data: [
+    { link: 'https://www.epfl.ch/about/', anchor: 'About' },
+    { link: 'https://www.epfl.ch/education', anchor: 'Education' },
+    { link: 'https://www.epfl.ch/research', anchor: 'Research' },
+    { link: 'https://www.epfl.ch/innovation/', anchor: 'Innovation' },
+    { link: 'https://www.epfl.ch/schools/', anchor: 'Schools' },
+    { link: 'https://www.epfl.ch/campus/', anchor: 'Campus' },
+    { link: 'https://www.epfl.ch/about/', anchor: 'About' },
+    { link: 'https://www.epfl.ch/education', anchor: 'Education' },
+    { link: 'https://www.epfl.ch/research', anchor: 'Research' },
+    { link: 'https://www.epfl.ch/innovation/', anchor: 'Innovation' },
+    { link: 'https://www.epfl.ch/schools/', anchor: 'Schools' },
+    { link: 'https://www.epfl.ch/campus/', anchor: 'Campus' },
+    { link: 'https://www.epfl.ch/about/', anchor: 'About' },
+    { link: 'https://www.epfl.ch/education', anchor: 'Education' },
+    { link: 'https://www.epfl.ch/research', anchor: 'Research' },
+    { link: 'https://www.epfl.ch/innovation/', anchor: 'Innovation' },
+    { link: 'https://www.epfl.ch/schools/', anchor: 'Schools' },
+    { link: 'https://www.epfl.ch/campus/', anchor: 'Campus' },
+    { link: 'https://www.epfl.ch/about/', anchor: 'About' },
+    { link: 'https://www.epfl.ch/education', anchor: 'Education' },
+    { link: 'https://www.epfl.ch/research', anchor: 'Research' },
+    { link: 'https://www.epfl.ch/innovation/', anchor: 'Innovation' },
+    { link: 'https://www.epfl.ch/schools/', anchor: 'Schools' },
+    { link: 'https://www.epfl.ch/campus/', anchor: 'Campus' },
+    { link: 'https://www.epfl.ch/about/', anchor: 'About' },
+    { link: 'https://www.epfl.ch/education', anchor: 'Education' },
+    { link: 'https://www.epfl.ch/research', anchor: 'Research' },
+    { link: 'https://www.epfl.ch/innovation/', anchor: 'Innovation' },
+    { link: 'https://www.epfl.ch/schools/', anchor: 'Schools' },
+    { link: 'https://www.epfl.ch/campus/', anchor: 'Campus' }
+  ]
+}
+
 export const CustomHeight: Story = {}
 CustomHeight.args = {
   height: 200,

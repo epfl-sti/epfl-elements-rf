@@ -1,3 +1,7 @@
+.table {
+    display: block;
+}
+
 .table th {
     background: white;
     position: sticky;
