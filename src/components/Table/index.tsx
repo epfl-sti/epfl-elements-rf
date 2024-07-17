@@ -24,10 +24,11 @@ type TableProps = {
   columnsWithRawHtml?: Array<any>;
   height?: number | string;
   width?: number | string;
+  overflow?: boolean;
   orderCallbackFn?: Callback;
 }
 
-export function Table ({ data, title, columns, columnsLabels, hyperLinks, tagColumns, showRowTotals, columnsWithRawHtml, width, height, orderCallbackFn }: TableProps) {
+export function Table ({ data, title, columns, columnsLabels, hyperLinks, tagColumns, showRowTotals, columnsWithRawHtml, width, height, overflow, orderCallbackFn }: TableProps) {
   const [cols, setCols] = useState<Array<string>>()
   const [rows, setRows] = useState<Array<string>>()
   const [asc, setAsc] = useState(false)
@@ -129,7 +130,13 @@ export function Table ({ data, title, columns, columnsLabels, hyperLinks, tagCol
     const getTable = () => <div>
       {title && <><hr /><h4>{title}</h4><hr /></>}
       {rows && showRowTotals && <h5>Total Records: {rows.length}</h5>}
-      <table className='table table-sortable' style={{ width, height }}>
+      <table className='table table-sortable' style={
+        {
+          width, 
+          height: overflow ? height ? height : '100px' : undefined, 
+          overflowY: overflow ? 'scroll' : undefined,
+        }
+      }>
         {cols && getHeader()}
         {cols && rows && getRows()}
       </table>
