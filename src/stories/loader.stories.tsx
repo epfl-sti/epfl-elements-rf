@@ -1,18 +1,18 @@
 import type { StoryObj } from "@storybook/react";
-import { Loader } from "../components/Loader"
+import { Loader } from "../components/Loader";
 
 const meta = {
   title: "Atoms/Loader",
   component: Loader,
-  tags: ["docsPage"]
+  tags: ["docsPage"],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
-export const CustomMessage: Story = {}
+export const CustomMessage: Story = {};
 CustomMessage.args = {
-  message: 'Loader passing a custom message'
-}
+  message: "Loader passing a custom message",
+};
