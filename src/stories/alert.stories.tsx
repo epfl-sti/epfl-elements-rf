@@ -21,6 +21,21 @@ export const Success: Story = {
   },
 };
 
+export const SuccessHtml: Story = {
+  args: {
+    title: 'Success html',
+    message: <ul>
+      <li>Fisrt</li>
+      <li>Second</li>
+      <li>Third</li>
+    </ul>,
+    alertType: 'success',
+    onCloseClick: () => {
+        console.log('The success alert was dismissed')
+    }
+  },
+};
+
 export const Info: Story = {
     args: {
       title: 'Information',

@@ -6,7 +6,7 @@ type Callback = () => void;
 
 type AlertProps = {
     title: string;
-    message: string;
+    message: string | JSX.Element;
     alertType: string;
     onCloseClick?: Callback;
 };
