@@ -6,7 +6,7 @@ type CsfrToken = {
   inputName?: string
 }
 
-export function CsfrToken ({ tokenName = 'csrftoken', inputName = 'csrfmiddlewaretoken' }) {
+export function CsfrToken ({ tokenName = 'csrftoken', inputName = 'csrfmiddlewaretoken' }: CsfrToken) {
   const [token, setToken] = useState<string>()
 
   useEffect(() => {
