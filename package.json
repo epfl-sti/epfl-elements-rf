@@ -35,11 +35,11 @@
   "dependencies": {
     "@epfl/epfl-elements-styles": "^2.0.0",
     "@storybook/addons": "^7.0.10",
-    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
-    "sort-objects-array": "^2.0.0"
+    "sort-objects-array": "^2.0.0",
+    "universal-cookie": "^7.1.4"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.10",
