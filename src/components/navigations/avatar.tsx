@@ -3,21 +3,19 @@ import { AuthenticatedBaseUser } from '../Base';
 import { useState } from 'react';
 
 
-interface AvatarMenuItemProps {
+export interface AvatarMenuItem {
   icon: JSX.Element;
   label: string;
   link: string;
   onClick?: () => void;
 }
 
-
 interface AvatarProps {
-  user?: AuthenticatedBaseUser;
-  logOutUrl?: string;
-  menuItems?: Array<AvatarMenuItemProps>;
+  user: AuthenticatedBaseUser;
+  menuItems?: Array<AvatarMenuItem>;
 }
 
-export function Avatar({user, menuItems, logOutUrl}: AvatarProps) {
+export function Avatar({user, menuItems}: AvatarProps) {
 
   const [showUserMenu, setShowUserMenu] = useState(false)
 
@@ -29,14 +27,14 @@ export function Avatar({user, menuItems, logOutUrl}: AvatarProps) {
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
       </use>
-    </svg>, label: "My profile", link: "#"},
+    </svg>, label: "My profile", link: "/profile" },
     {icon: <svg className="icon feather" aria-hidden="true">
       <use href="#log-out">
         <svg fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-log-out" id="log-out" viewBox="0 0 24 24">
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4m7 14 5-5-5-5m5 5H9"></path>
         </svg>
       </use>
-    </svg>, label: "Logout", link: "#"}
+    </svg>, label: "Logout", link: "/logout" }
   ]
 
 

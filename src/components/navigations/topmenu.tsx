@@ -2,8 +2,8 @@ import '@epfl/epfl-elements-styles/dist/css/combined.css'
 
 export interface TopmenuInnerProps {
  active?: boolean;
- link?: string;
- anchor?: string;
+ link: string;
+ anchor: string;
 }
 
 export type TopmenuProps = {

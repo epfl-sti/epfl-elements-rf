@@ -14,6 +14,7 @@ import { DrawerInnerProps } from '../Drawer'
 import { BreadcrumbsItemProps } from '../Breadcrumbs'
 import { TopmenuInnerProps } from '../navigations/topmenu'
 import { AsidemenuItemsProps } from '../navigations/asidemenu'
+import { AvatarMenuItem } from '../navigations/avatar'
 // import { MenuItemProps } from '../navigations/mainMenu'
 
 
@@ -44,6 +45,7 @@ type BaseProps = {
   title?: string;
   baseTitle?: string;
   asideMenuItems?: Array<AsidemenuItemsProps>;
+  avatarMenuItems?: Array<AvatarMenuItem>;
   // mainMenuItems?: Array<MenuItemProps>;
   useReactRouterLinks?: boolean;
 }
@@ -97,9 +99,8 @@ export function Base ({
   mainContainerClass,
   baseTitle,
   title,
-  avatarLogoUrl,
-  avatarLogoAltText,
-  useReactRouterLinks
+  useReactRouterLinks,
+  avatarMenuItems
 }: BaseProps) {
   baseTitle && title && setPageTitle(baseTitle, title)
 
@@ -116,10 +117,9 @@ export function Base ({
         {isBeta && getBetaAlert()}
         <Header
           topMenuItems={topMenuItems}
+          avatarMenuItems={avatarMenuItems}
           drawerContents={drawerContents}
           user={user}
-          avatarLogoUrl={avatarLogoUrl}
-          avatarLogoAltText={avatarLogoAltText}
         />
         <div className='main-container'>
           <Breadcrumbs items={breadcrumbItems} />

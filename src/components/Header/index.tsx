@@ -5,34 +5,19 @@ import { Topmenu } from '../navigations/topmenu'
 import { AuthenticatedBaseUser } from '../Base'
 import '@epfl/epfl-elements-styles/dist/css/combined.css'
 import { DrawerInnerProps } from '../Drawer/'
+import { AvatarMenuItem } from '../navigations/avatar'
+import { Language } from '../navigations/language'
 
 type HeaderProps = {
-  topMenuItems?: Array<{ active: boolean, link: string, anchor: string }>;
+  topMenuItems?: Array<{ active?: boolean, link: string, anchor: string }>;
   drawerContents?: DrawerInnerProps;
   user?: AuthenticatedBaseUser;
   logOutUrl?: string;
+  avatarMenuItems?: Array<AvatarMenuItem>;
+  activeLanguage?: string;
 }
 
-
-const LanguageSwitcher = () => {
-  return (
-    <nav className="nav-lang nav-lang-short ml-auto">
-      <ul>
-        <li>
-          <span className="active" aria-label="Français">FR</span>
-        </li>
-        <li>
-          <a href="#" aria-label="English">EN</a>
-        </li>
-      </ul>
-    </nav>
-  )
-
-}
-
-
-
-export function Header({ topMenuItems, drawerContents, user, logOutUrl }: HeaderProps) {
+export function Header({ topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage }: HeaderProps) {
 
 
   return (
@@ -41,9 +26,8 @@ export function Header({ topMenuItems, drawerContents, user, logOutUrl }: Header
       <Logo />
       <Topmenu menuItems={topMenuItems} />
 
-      {user && <Avatar user={user} logOutUrl={logOutUrl} />}
-      <LanguageSwitcher />
-
+      {user && <Avatar user={user} menuItems={avatarMenuItems} />}
+      {(activeLanguage !== undefined) ? <Language active={activeLanguage} /> : <div style={{width: '50px'}}></div>}
 
     </header>
   )
