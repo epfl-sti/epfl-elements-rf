@@ -351,7 +351,7 @@
       "nom": "Traill",
       "prenom": "Heidy",
       "email": "heidy.traill@epfl.ch",
-      "photo_url": "https://randomuser.me/api/portraits/women/2.jpg",
+      "photoUrl": "https://randomuser.me/api/portraits/women/2.jpg",
       "people_url": "https://people.epfl.ch/heidy.traill",
       "functions": [
         "Professor"
@@ -373,7 +373,7 @@
       "nom": "Felicitas Lane",
       "prenom": "Dolores",
       "email": "dolores.felicitas.lane@epfl.ch",
-      "photo_url": "https://randomuser.me/api/portraits/women/8.jpg",
+      "photoUrl": "https://randomuser.me/api/portraits/women/8.jpg",
       "people_url": "https://people.epfl.ch/dolores.felicitas.lane",
       "functions": [
         "Information systems director",
@@ -396,7 +396,7 @@
       "nom": "Buratto",
       "prenom": "Philip",
       "email": "philip.buratto@epfl.ch",
-      "photo_url": "https://randomuser.me/api/portraits/men/7.jpg",
+      "photoUrl": "https://randomuser.me/api/portraits/men/7.jpg",
       "people_url": "https://people.epfl.ch/philip.buratto",
       "functions": [
         "Staff"
@@ -412,7 +412,7 @@
       "nom": "Reeves O'Neill Edwards",
       "prenom": "Shawna",
       "email": "shawna.reeves.oneill.edwards@epfl.ch",
-      "photo_url": "",
+      "photoUrl": "",
       "people_url": "https://people.epfl.ch/shawna.reeves.oneill.edwards",
       "functions": [
         "Guest"
@@ -428,7 +428,7 @@
       "nom": "Camus",
       "prenom": "Vail",
       "email": "vail.camus@epfl.ch",
-      "photo_url": "https://randomuser.me/api/portraits/women/14.jpg",
+      "photoUrl": "https://randomuser.me/api/portraits/women/14.jpg",
       "people_url": "https://people.epfl.ch/vail.camus",
       "functions": [
         "Scientist"
@@ -444,7 +444,7 @@
       "nom": "Charbonneau",
       "prenom": "Amorette",
       "email": "amorette.charbonneau@epfl.ch",
-      "photo_url": "https://randomuser.me/api/portraits/women/3.jpg",
+      "photoUrl": "https://randomuser.me/api/portraits/women/3.jpg",
       "people_url": "https://people.epfl.ch/amorette.charbonneau",
       "functions": [
         "Staff"
@@ -460,7 +460,7 @@
       "nom": "Bradley",
       "prenom": "Marcellus",
       "email": "marcellus.bradley@epfl.ch",
-      "photo_url": "https://randomuser.me/api/portraits/men/4.jpg",
+      "photoUrl": "https://randomuser.me/api/portraits/men/4.jpg",
       "people_url": "https://people.epfl.ch/marcellus.bradley",
       "functions": [
         "Doctoral Assistant",

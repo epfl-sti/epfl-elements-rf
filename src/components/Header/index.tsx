@@ -2,14 +2,14 @@ import { Avatar } from '../navigations/avatar'
 import { Drawer } from '../Drawer/'
 import { Logo } from '../Logo/'
 import { Topmenu } from '../navigations/topmenu'
-
+import { AuthenticatedBaseUser } from '../Base'
 import '@epfl/epfl-elements-styles/dist/css/combined.css'
 import { DrawerInnerProps } from '../Drawer/'
 
 type HeaderProps = {
   topMenuItems?: Array<any>;
   drawerContents?: DrawerInnerProps;
-  user?: object;
+  user?: AuthenticatedBaseUser;
   logOutUrl?: string;
   avatarLogoUrl?: string;
   avatarLogoAltText?: string

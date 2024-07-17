@@ -16,6 +16,14 @@ import { TopmenuInnerProps } from '../navigations/topmenu'
 import { AsidemenuItemsProps } from '../navigations/asidemenu'
 // import { MenuItemProps } from '../navigations/mainMenu'
 
+
+export type AuthenticatedBaseUser = {
+  sciper?: string | number;
+  firstName?: string;
+  lastName?: string;
+  photoUrl?: string;
+}
+
 type BaseProps = {
   feedBackEmail?: string;
   homeAnchor?: string;
@@ -24,7 +32,7 @@ type BaseProps = {
   isBeta?: boolean;
   isLoading?: boolean;
   children?: JSX.Element;
-  user?: object;
+  user?: AuthenticatedBaseUser;
   breadcrumbItems?: Array<BreadcrumbsItemProps>;
   topMenuItems?: Array<TopmenuInnerProps>;
   showFooter?: boolean;

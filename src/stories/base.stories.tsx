@@ -16,10 +16,10 @@ const breadcrumbItems = [
   const baseTitle = 'EPFL STI React Library'
   
   const user = {
-    first_name: 'Juan',
-    last_name: 'Convers',
+    firstName: 'Juan',
+    lastName: 'Convers',
     sciper: '00000',
-    photo_url: 'https://avatars.githubusercontent.com/u/12231812'
+    photoUrl: 'https://avatars.githubusercontent.com/u/12231812'
   }
   
 

@@ -13,10 +13,10 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
     user: {
-      first_name: 'Juan',
-      last_name: 'Convers',
+      firstName: 'Juan',
+      lastName: 'Convers',
       sciper: '00000',
-      photo_url: 'https://avatars.githubusercontent.com/u/12231812'
+      photoUrl: 'https://avatars.githubusercontent.com/u/12231812'
     },
     logOutUrl: 'https://tequila.epfl.ch/logout'
   }
@@ -25,10 +25,10 @@ export const Default: Story = {
 export const CustomLogo: Story = {
   args: {
     user: {
-      first_name: 'Juan',
-      last_name: 'Convers',
+      firstName: 'Juan',
+      lastName: 'Convers',
       sciper: '00000',
-      photo_url: 'https://avatars.githubusercontent.com/u/12231812'
+      photoUrl: 'https://avatars.githubusercontent.com/u/12231812'
     },
     logOutUrl: 'https://tequila.epfl.ch/logout',
     logoUrl: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
