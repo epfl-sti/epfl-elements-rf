@@ -7,24 +7,44 @@ import '@epfl/epfl-elements-styles/dist/css/combined.css'
 import { DrawerInnerProps } from '../Drawer/'
 
 type HeaderProps = {
-  topMenuItems?: Array<any>;
+  topMenuItems?: Array<{ active: boolean, link: string, anchor: string }>;
   drawerContents?: DrawerInnerProps;
   user?: AuthenticatedBaseUser;
   logOutUrl?: string;
-  avatarLogoUrl?: string;
-  avatarLogoAltText?: string
 }
 
 
-export function Header ({ topMenuItems, drawerContents, user, logOutUrl, avatarLogoUrl, avatarLogoAltText }: HeaderProps) {
-  const getAvatar = () => <Avatar user={user} logOutUrl={logOutUrl} logoUrl={avatarLogoUrl} logoAltText={avatarLogoAltText} />
+const LanguageSwitcher = () => {
+  return (
+    <nav className="nav-lang nav-lang-short ml-auto">
+      <ul>
+        <li>
+          <span className="active" aria-label="Français">FR</span>
+        </li>
+        <li>
+          <a href="#" aria-label="English">EN</a>
+        </li>
+      </ul>
+    </nav>
+  )
+
+}
+
+
+
+export function Header({ topMenuItems, drawerContents, user, logOutUrl }: HeaderProps) {
+
 
   return (
     <header role='banner' className='header'>
       {drawerContents && <Drawer contents={drawerContents} />}
       <Logo />
       <Topmenu menuItems={topMenuItems} />
-      {user && getAvatar()}
+
+      {user && <Avatar user={user} logOutUrl={logOutUrl} />}
+      <LanguageSwitcher />
+
+
     </header>
   )
 }
