@@ -1,4 +1,4 @@
-import { Avatar } from '../navigations/avatar'
+import { Avatar, LoginButton } from '../navigations/avatar'
 import { Drawer } from '../Drawer/'
 import { Logo } from '../Logo/'
 import { Topmenu } from '../navigations/topmenu'
@@ -10,14 +10,16 @@ import { Language } from '../navigations/language'
 
 type HeaderProps = {
   topMenuItems?: Array<{ active?: boolean, link: string, anchor: string }>;
+  useReactRouterLinks?: boolean;
   drawerContents?: DrawerInnerProps;
   user?: AuthenticatedBaseUser;
   logOutUrl?: string;
+  loginUrl?: string;
   avatarMenuItems?: Array<AvatarMenuItem>;
   activeLanguage?: string;
 }
 
-export function Header({ topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage }: HeaderProps) {
+export function Header({ useReactRouterLinks, topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage, loginUrl }: HeaderProps) {
 
 
   return (
@@ -26,7 +28,7 @@ export function Header({ topMenuItems, drawerContents, user, avatarMenuItems, ac
       <Logo />
       <Topmenu menuItems={topMenuItems} />
 
-      {user && <Avatar user={user} menuItems={avatarMenuItems} />}
+      {user ? <Avatar user={user} menuItems={avatarMenuItems} useReactRouterLinks={useReactRouterLinks} />: <LoginButton loginURL={loginUrl} />}
       {(activeLanguage !== undefined) ? <Language active={activeLanguage} /> : <div style={{width: '50px'}}></div>}
 
     </header>

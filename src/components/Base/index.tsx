@@ -41,6 +41,7 @@ type BaseProps = {
   drawerContents?: DrawerInnerProps;
   avatarLogoAltText?: string;
   avatarLogoUrl?: string,
+  avatarLoginUrl?: string,
   mainContainerClass?: string;
   title?: string;
   baseTitle?: string;
@@ -80,6 +81,8 @@ const defaultShowFooter = true
 
 const defaultUseLightFooter = false
 
+const avatarDefaultLoginUrl = '/api/v1/login'
+
 export function Base ({
   children,
   user,
@@ -100,7 +103,8 @@ export function Base ({
   baseTitle,
   title,
   useReactRouterLinks,
-  avatarMenuItems
+  avatarMenuItems,
+  avatarLoginUrl=avatarDefaultLoginUrl
 }: BaseProps) {
   baseTitle && title && setPageTitle(baseTitle, title)
 
@@ -118,7 +122,9 @@ export function Base ({
         <Header
           topMenuItems={topMenuItems}
           avatarMenuItems={avatarMenuItems}
+          useReactRouterLinks={useReactRouterLinks}
           drawerContents={drawerContents}
+          loginUrl={avatarLoginUrl}
           user={user}
         />
         <div className='main-container'>

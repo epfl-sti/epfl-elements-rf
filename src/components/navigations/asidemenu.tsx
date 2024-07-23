@@ -27,8 +27,8 @@ export type AsidemenuProps = {
 
 export function Asidemenu ({ isHome, isLoading, menuItems, homeAnchor, homeLink, feedBackEmail, useReactRouterLinks }: AsidemenuProps) {
   const getMenuList = (menus: Array<AsindeMenuSingleItemProps>) =>
-    menus.map(menu =>
-      <li className={menu.link === document.location.pathname ? 'active' : undefined} key={menu.link}>
+    menus.map((menu, i) =>
+      <li className={menu.link === document.location.pathname ? 'active' : undefined} key={menu.link+i}>
         {
           useReactRouterLinks ? <Link to={menu.link}>{menu.anchor}</Link>
           : <a href={menu.link}>{menu.anchor}</a>}
