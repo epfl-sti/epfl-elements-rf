@@ -1,23 +1,23 @@
 import type { StoryObj } from "@storybook/react";
-import { Checkbox } from "../components/Forms/Checkbox"
+import { Checkbox } from "../components/Forms/Checkbox";
 
 const meta = {
   title: "Atoms/Checkbox",
   component: Checkbox,
-  tags: ["docsPage"]
+  tags: ["docsPage"],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-let isSelectedFlag = true
+let isSelectedFlag = true;
 
-export const Default: Story = {}
+export const Default: Story = {};
 Default.args = {
-  label: 'Test Checkbox',
+  label: "Test Checkbox",
   isSelected: isSelectedFlag,
   onCheckboxChange: () => {
-  console.log('State should Change.')
-    isSelectedFlag = !isSelectedFlag
-  }
-}
+    console.log("State should Change.");
+    isSelectedFlag = !isSelectedFlag;
+  },
+};

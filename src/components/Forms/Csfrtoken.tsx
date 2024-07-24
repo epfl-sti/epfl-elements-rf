@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
-import Cookies from 'js-cookie'
+import Cookies from 'universal-cookie'
 
 type CsfrToken = {
   tokenName?: string;
   inputName?: string
 }
 
-export function CsfrToken ({ tokenName = 'csrftoken', inputName = 'csrfmiddlewaretoken' }) {
+export function CsfrToken ({ tokenName = 'csrftoken', inputName = 'csrfmiddlewaretoken' }: CsfrToken) {
   const [token, setToken] = useState<string>()
 
   useEffect(() => {
-    const cookietoken = Cookies.get(tokenName)
+    const cookies = new Cookies()
+    const cookietoken = cookies.get(tokenName)
     setToken(cookietoken)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

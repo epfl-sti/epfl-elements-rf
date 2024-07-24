@@ -14,7 +14,16 @@ import { DrawerInnerProps } from '../Drawer'
 import { BreadcrumbsItemProps } from '../Breadcrumbs'
 import { TopmenuInnerProps } from '../navigations/topmenu'
 import { AsidemenuItemsProps } from '../navigations/asidemenu'
+import { AvatarMenuItem } from '../navigations/avatar'
 // import { MenuItemProps } from '../navigations/mainMenu'
+
+
+export type AuthenticatedBaseUser = {
+  sciper?: string | number;
+  firstName?: string;
+  lastName?: string;
+  photoUrl?: string;
+}
 
 type BaseProps = {
   feedBackEmail?: string;
@@ -24,18 +33,20 @@ type BaseProps = {
   isBeta?: boolean;
   isLoading?: boolean;
   children?: JSX.Element;
-  user?: object;
+  user?: AuthenticatedBaseUser;
   breadcrumbItems?: Array<BreadcrumbsItemProps>;
   topMenuItems?: Array<TopmenuInnerProps>;
   showFooter?: boolean;
   useLightFooter?: boolean;
   drawerContents?: DrawerInnerProps;
   avatarLogoAltText?: string;
-  avatarLogoUrl?: string,
+  customAvatarSectionHTML?: JSX.Element;
+  avatarLoginUrl?: string;
   mainContainerClass?: string;
   title?: string;
   baseTitle?: string;
   asideMenuItems?: Array<AsidemenuItemsProps>;
+  avatarMenuItems?: Array<AvatarMenuItem>;
   // mainMenuItems?: Array<MenuItemProps>;
   useReactRouterLinks?: boolean;
 }
@@ -70,6 +81,8 @@ const defaultShowFooter = true
 
 const defaultUseLightFooter = false
 
+const avatarDefaultLoginUrl = '/api/v1/login'
+
 export function Base ({
   children,
   user,
@@ -89,9 +102,10 @@ export function Base ({
   mainContainerClass,
   baseTitle,
   title,
-  avatarLogoUrl,
-  avatarLogoAltText,
-  useReactRouterLinks
+  useReactRouterLinks,
+  avatarMenuItems,
+  avatarLoginUrl=avatarDefaultLoginUrl,
+  customAvatarSectionHTML
 }: BaseProps) {
   baseTitle && title && setPageTitle(baseTitle, title)
 
@@ -108,10 +122,12 @@ export function Base ({
         {isBeta && getBetaAlert()}
         <Header
           topMenuItems={topMenuItems}
+          avatarMenuItems={avatarMenuItems}
+          useReactRouterLinks={useReactRouterLinks}
           drawerContents={drawerContents}
+          loginUrl={avatarLoginUrl}
           user={user}
-          avatarLogoUrl={avatarLogoUrl}
-          avatarLogoAltText={avatarLogoAltText}
+          customAvatarSectionHTML={customAvatarSectionHTML}
         />
         <div className='main-container'>
           <Breadcrumbs items={breadcrumbItems} />

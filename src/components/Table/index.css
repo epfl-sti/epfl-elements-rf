@@ -1,8 +1,7 @@
-.table{
-    overflow-y:scroll;
-    height: 600px;
+.table {
     display: block;
 }
+
 .table th {
     background: white;
     position: sticky;

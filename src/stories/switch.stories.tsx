@@ -1,74 +1,75 @@
 import type { StoryObj } from "@storybook/react";
-import { Switch } from "../components/Forms/Switch"
+import { Switch } from "../components/Forms/Switch";
 import { Base } from "../components/Base";
 
 const meta = {
   title: "Atoms/Switch",
   component: Switch,
-  tags: ["docsPage"]
+  tags: ["docsPage"],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const withBaseTemplate: Story = {
-  render: (args) =>  
+  render: (args) => (
     <Base asideMenuItems={[]}>
-    <Switch {...args} />
-  </Base>
-}
+      <Switch {...args} />
+    </Base>
+  ),
+};
 
-export const Default: Story = {}
+export const Default: Story = {};
 Default.args = {
-  id: 'testId1',
-  label: '',
+  id: "testId1",
+  label: "",
   onChangeCallback: () => {
-    console.log('State should Change.')
-  }
-}
+    console.log("State should Change.");
+  },
+};
 
-export const WithLabel: Story = {}
+export const WithLabel: Story = {};
 WithLabel.args = {
-  id: 'testId2',
-  label: 'Test Checkbox',
+  id: "testId2",
+  label: "Test Checkbox",
   onChangeCallback: () => {
-    console.log('State should Change.')
-  }
-}
+    console.log("State should Change.");
+  },
+};
 
-export const isChecked: Story = {}
+export const isChecked: Story = {};
 isChecked.args = {
-  id: 'testId3',
-  label: 'Test Checkbox',
+  id: "testId3",
+  label: "Test Checkbox",
   isChecked: true,
   onChangeCallback: () => {
-    console.log('State should Change.')
-  }
-}
+    console.log("State should Change.");
+  },
+};
 
-export const WithCallback: Story = {}
+export const WithCallback: Story = {};
 WithCallback.args = {
-  id: 'testId4',
-  label: 'Test Checkbox',
+  id: "testId4",
+  label: "Test Checkbox",
   onChangeCallback: (value) => {
-  console.log(`Value returned: ${value}`)
-  }
-}
+    console.log(`Value returned: ${value}`);
+  },
+};
 
-export const WithLeftMargin: Story = {}
+export const WithLeftMargin: Story = {};
 WithLeftMargin.args = {
-  id: 'testId4',
-  label: 'Test Checkbox',
-  marginLeft: '10em'
-}
+  id: "testId4",
+  label: "Test Checkbox",
+  marginLeft: "10em",
+};
 
 export const withBaseComponent = {
   ...withBaseTemplate,
   args: {
-    id: 'testId7',
-    label: 'Test Checkbox',
+    id: "testId7",
+    label: "Test Checkbox",
     onChangeCallback: () => {
-      console.log('State should Change.')
-    }
-  }
+      console.log("State should Change.");
+    },
+  },
 };

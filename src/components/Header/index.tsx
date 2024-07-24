@@ -1,30 +1,37 @@
-import { Avatar } from '../navigations/avatar'
+import { Avatar, LoginButton } from '../navigations/avatar'
 import { Drawer } from '../Drawer/'
 import { Logo } from '../Logo/'
 import { Topmenu } from '../navigations/topmenu'
-
+import { AuthenticatedBaseUser } from '../Base'
 import '@epfl/epfl-elements-styles/dist/css/combined.css'
 import { DrawerInnerProps } from '../Drawer/'
+import { AvatarMenuItem } from '../navigations/avatar'
+import { Language } from '../navigations/language'
 
 type HeaderProps = {
-  topMenuItems?: Array<any>;
+  topMenuItems?: Array<{ active?: boolean, link: string, anchor: string }>;
+  useReactRouterLinks?: boolean;
   drawerContents?: DrawerInnerProps;
-  user?: object;
+  user?: AuthenticatedBaseUser;
   logOutUrl?: string;
-  avatarLogoUrl?: string;
-  avatarLogoAltText?: string
+  loginUrl?: string;
+  avatarMenuItems?: Array<AvatarMenuItem>;
+  activeLanguage?: string;
+  customAvatarSectionHTML?: JSX.Element;
 }
 
+export function Header({customAvatarSectionHTML,  useReactRouterLinks, topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage, loginUrl }: HeaderProps) {
 
-export function Header ({ topMenuItems, drawerContents, user, logOutUrl, avatarLogoUrl, avatarLogoAltText }: HeaderProps) {
-  const getAvatar = () => <Avatar user={user} logOutUrl={logOutUrl} logoUrl={avatarLogoUrl} logoAltText={avatarLogoAltText} />
 
   return (
     <header role='banner' className='header'>
       {drawerContents && <Drawer contents={drawerContents} />}
       <Logo />
       <Topmenu menuItems={topMenuItems} />
-      {user && getAvatar()}
+
+      {user ? <Avatar user={user} customAvatarSectionHTML={customAvatarSectionHTML} menuItems={avatarMenuItems} useReactRouterLinks={useReactRouterLinks} />: <LoginButton loginURL={loginUrl} />}
+      {(activeLanguage !== undefined) ? <Language active={activeLanguage} /> : <div style={{width: '50px'}}></div>}
+      
     </header>
   )
 }
