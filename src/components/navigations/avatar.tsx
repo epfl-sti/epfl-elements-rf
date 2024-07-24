@@ -57,7 +57,7 @@ export function Avatar({profileUrl, logoutUrl, user, customAvatarSectionHTML, me
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4m7 14 5-5-5-5m5 5H9"></path>
         </svg>
       </use>
-    </svg>, label: "Logout", link: logoutUrl, onClick: undefined }
+    </svg>, label: "Logout", link: logoutUrl, onClick: useReactRouterLinks ? ()=>window.location.href = logoutUrl : undefined }
   ] as Array<AvatarMenuItem>
 
   const itemsToUse = (menuItems && menuItems.length>0) ? menuItems : defaultMenuItems
@@ -79,12 +79,12 @@ export function Avatar({profileUrl, logoutUrl, user, customAvatarSectionHTML, me
             return <li key={`menu-item-${i}`} className='dropdown-item' onClick={item.onClick ? item.onClick : undefined}>
               {item.icon}
               {useReactRouterLinks ?
-              <Link to={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
-                {item.label}
-              </Link>:
-              <a href={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
-                {item.label}
-              </a>
+                <Link to={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
+                  {item.label}
+                </Link>:
+                <a href={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
+                  {item.label}
+                </a>
               }
             </li>}
           )}
