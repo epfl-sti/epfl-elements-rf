@@ -1,7 +1,7 @@
 {
   "name": "@epfl/epfl-elements-react",
   "homepage": "https://gitlab.epfl.ch/sti-nodejs/epfl-elements-react",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module",
   "description": "React Storybook UI Components library based on the EPFL Elements specification that you can install and use on your own React projects.",
   "files": [
