@@ -42,6 +42,8 @@ type BaseProps = {
   avatarLogoAltText?: string;
   customAvatarSectionHTML?: JSX.Element;
   avatarLoginUrl?: string;
+  avatarLogoutUrl?: string;
+  avatarProfileUrl?: string;
   mainContainerClass?: string;
   title?: string;
   baseTitle?: string;
@@ -81,7 +83,9 @@ const defaultShowFooter = true
 
 const defaultUseLightFooter = false
 
-const avatarDefaultLoginUrl = '/api/v1/login'
+const avatarDefaultLoginUrl = '/api/v1/login?next=/'
+const avatarDefaultLogoutUrl = '/api/v1/logout?next=/'
+const avatarDefaultProfileUrl = '/profiles/my'
 
 export function Base ({
   children,
@@ -93,7 +97,6 @@ export function Base ({
   isLoading = false,
   isBeta = false,
   asideMenuItems,
-  // mainMenuItems,
   topMenuItems = defaultTopMenuItems,
   breadcrumbItems = defaultBreadcrumbItems,
   drawerContents = defaultDrawerContents,
@@ -105,6 +108,8 @@ export function Base ({
   useReactRouterLinks,
   avatarMenuItems,
   avatarLoginUrl=avatarDefaultLoginUrl,
+  avatarLogoutUrl=avatarDefaultLogoutUrl, // used only for default menu items
+  avatarProfileUrl=avatarDefaultProfileUrl, // used only for default menu items
   customAvatarSectionHTML
 }: BaseProps) {
   baseTitle && title && setPageTitle(baseTitle, title)
@@ -125,9 +130,11 @@ export function Base ({
           avatarMenuItems={avatarMenuItems}
           useReactRouterLinks={useReactRouterLinks}
           drawerContents={drawerContents}
-          loginUrl={avatarLoginUrl}
           user={user}
           customAvatarSectionHTML={customAvatarSectionHTML}
+          loginUrl={avatarLoginUrl}
+          logoutUrl={avatarLogoutUrl}
+          profileUrl={avatarProfileUrl}
         />
         <div className='main-container'>
           <Breadcrumbs items={breadcrumbItems} />

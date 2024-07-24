@@ -16,13 +16,15 @@ interface AvatarProps {
   menuItems?: Array<AvatarMenuItem>;
   useReactRouterLinks?: boolean;
   customAvatarSectionHTML: JSX.Element;
+  logoutUrl?: string;
+  profileUrl?: string;
 }
 
 interface LoginButtonProps {
   loginURL?: string;
 }
 
-export function Avatar({user, customAvatarSectionHTML, menuItems, useReactRouterLinks}: AvatarProps) {
+export function Avatar({profileUrl, logoutUrl, user, customAvatarSectionHTML, menuItems, useReactRouterLinks}: AvatarProps) {
 
   const [showUserMenu, setShowUserMenu] = useState(false)
 
@@ -48,15 +50,17 @@ export function Avatar({user, customAvatarSectionHTML, menuItems, useReactRouter
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
       </use>
-    </svg>, label: "My profile", link: "/profile", onClick: ()=>{return} },
+    </svg>, label: "My profile", link: profileUrl, onClick: undefined },
     {icon: <svg className="icon feather" aria-hidden="true">
       <use href="#log-out">
         <svg fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-log-out" id="log-out" viewBox="0 0 24 24">
           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4m7 14 5-5-5-5m5 5H9"></path>
         </svg>
       </use>
-    </svg>, label: "Logout", link: "/logout", onClick: ()=>{return} }
-  ]
+    </svg>, label: "Logout", link: logoutUrl, onClick: undefined }
+  ] as Array<AvatarMenuItem>
+
+  const itemsToUse = (menuItems && menuItems.length>0) ? menuItems : defaultMenuItems
 
   return (
     <>
@@ -70,8 +74,9 @@ export function Avatar({user, customAvatarSectionHTML, menuItems, useReactRouter
           <p className="user-name">{user.firstName} {user.lastName}</p>
         </button>
         <ul className={`dropdown-menu ${showUserMenu ? "show" : ""}`} aria-labelledby="dropdownMenuButton">
-          {((menuItems && menuItems.length>0) ? menuItems : defaultMenuItems).map((item, i) =>
-            <li key={`menu-item-${i}`} className='dropdown-item' onClick={item.onClick ? item.onClick : undefined}>
+          {itemsToUse.map((item, i) =>{
+
+            return <li key={`menu-item-${i}`} className='dropdown-item' onClick={item.onClick ? item.onClick : undefined}>
               {item.icon}
               {useReactRouterLinks ?
               <Link to={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
@@ -81,7 +86,7 @@ export function Avatar({user, customAvatarSectionHTML, menuItems, useReactRouter
                 {item.label}
               </a>
               }
-            </li>
+            </li>}
           )}
         </ul>
       </div>

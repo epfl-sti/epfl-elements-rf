@@ -13,14 +13,15 @@ type HeaderProps = {
   useReactRouterLinks?: boolean;
   drawerContents?: DrawerInnerProps;
   user?: AuthenticatedBaseUser;
-  logOutUrl?: string;
+  logoutUrl?: string;
+  profileUrl?: string;
   loginUrl?: string;
   avatarMenuItems?: Array<AvatarMenuItem>;
   activeLanguage?: string;
   customAvatarSectionHTML?: JSX.Element;
 }
 
-export function Header({customAvatarSectionHTML,  useReactRouterLinks, topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage, loginUrl }: HeaderProps) {
+export function Header({logoutUrl, profileUrl, customAvatarSectionHTML,  useReactRouterLinks, topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage, loginUrl }: HeaderProps) {
 
 
   return (
@@ -29,7 +30,16 @@ export function Header({customAvatarSectionHTML,  useReactRouterLinks, topMenuIt
       <Logo />
       <Topmenu menuItems={topMenuItems} />
 
-      {user ? <Avatar user={user} customAvatarSectionHTML={customAvatarSectionHTML} menuItems={avatarMenuItems} useReactRouterLinks={useReactRouterLinks} />: <LoginButton loginURL={loginUrl} />}
+      {user ? <Avatar 
+        user={user}
+        customAvatarSectionHTML={customAvatarSectionHTML}
+        menuItems={avatarMenuItems}
+        useReactRouterLinks={useReactRouterLinks}
+        logoutUrl={logoutUrl}
+        profileUrl={profileUrl}
+        />
+        :
+        <LoginButton loginURL={loginUrl} />}
       {(activeLanguage !== undefined) ? <Language active={activeLanguage} /> : <div style={{width: '50px'}}></div>}
       
     </header>
