@@ -27,7 +27,7 @@ export const SuccessHtml: Story = {
     title: "Success html",
     message: (
       <ul>
-        <li>Fisrt</li>
+        <li>First</li>
         <li>Second</li>
         <li>Third</li>
       </ul>

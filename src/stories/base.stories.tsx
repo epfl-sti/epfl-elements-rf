@@ -204,8 +204,6 @@ export const CustomAvatarLogo: Story = {
     feedBackEmail: "mykompas_administrators@groupes.epfl.ch",
     asideMenuItems: [],
     user,
-    avatarLogoUrl:
-      "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
     avatarLogoAltText: "white space placeholder",
     children: <h4>Test Application</h4>,
   },
@@ -220,8 +218,7 @@ export const CustomMainContainerClass: Story = {
     feedBackEmail: "mykompas_administrators@groupes.epfl.ch",
     asideMenuItems: [],
     user,
-    avatarLogoUrl:
-      "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+    customAvatarSectionHTML: <h4>Custom Avatar Section</h4>,
     avatarLogoAltText: "white space placeholder",
     children: <h4>Test Application</h4>,
   },

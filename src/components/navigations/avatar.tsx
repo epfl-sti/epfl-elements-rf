@@ -1,6 +1,6 @@
 import './index.css'
 import { AuthenticatedBaseUser } from '../Base';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -15,15 +15,30 @@ interface AvatarProps {
   user: AuthenticatedBaseUser;
   menuItems?: Array<AvatarMenuItem>;
   useReactRouterLinks?: boolean;
+  customAvatarSectionHTML: JSX.Element;
 }
 
 interface LoginButtonProps {
   loginURL?: string;
 }
 
-export function Avatar({user, menuItems, useReactRouterLinks}: AvatarProps) {
+export function Avatar({user, customAvatarSectionHTML, menuItems, useReactRouterLinks}: AvatarProps) {
 
   const [showUserMenu, setShowUserMenu] = useState(false)
+
+  const handleOutsideClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.nav-user')) {
+      setShowUserMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   const defaultMenuItems = [
     {icon: <svg className="icon feather" aria-hidden="true">
@@ -43,35 +58,32 @@ export function Avatar({user, menuItems, useReactRouterLinks}: AvatarProps) {
     </svg>, label: "Logout", link: "/logout", onClick: ()=>{return} }
   ]
 
-
-  return (<>
-    <div className={`nav-user dropdown user-dropdown mr-lg-2 ${showUserMenu ? "show" : ""}`}>
-      <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded={showUserMenu ? "true" : "false"}
-        onClick={()=>setShowUserMenu(!showUserMenu)}
-        onBlur={(e)=>{
-          if (!e.currentTarget.contains(e.relatedTarget)) {
-            setShowUserMenu(false)
-          }
-        }}
-      >
-        <img className="user-avatar rounded-circle" src={user.photoUrl} alt=""/>
+  return (
+    <>
+    
+      <div className={`nav-user dropdown user-dropdown mr-lg-2 ${showUserMenu ? "show" : ""}`}>
+      {customAvatarSectionHTML && customAvatarSectionHTML}
+        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded={showUserMenu ? "true" : "false"}
+          onClick={()=>setShowUserMenu(!showUserMenu)}
+        >
+          <img className="user-avatar rounded-circle" src={user.photoUrl} alt=""/>
           <p className="user-name">{user.firstName} {user.lastName}</p>
-      </button>
-       <ul className={`dropdown-menu ${showUserMenu ? "show" : ""}`} aria-labelledby="dropdownMenuButton" >
-        {((menuItems && menuItems.length>0) ? menuItems : defaultMenuItems).map((item, i) =>
-          <li key={`menu-item-${i}`} className='dropdown-item' onClick={item.onClick ? item.onClick : undefined}>
-            {useReactRouterLinks ? <a href={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
-              {item.icon}{item.label}
-            </a>:
-            <Link to={item.onClick ? '#': item.link} className='dropdown-item'>
-              {item.icon}{item.label}
-            </Link>
-            }
-          </li>
-        )}
-      </ul>
-    </div>
-  </>
+        </button>
+        <ul className={`dropdown-menu ${showUserMenu ? "show" : ""}`} aria-labelledby="dropdownMenuButton">
+          {((menuItems && menuItems.length>0) ? menuItems : defaultMenuItems).map((item, i) =>
+            <li key={`menu-item-${i}`} className='dropdown-item' onClick={item.onClick ? item.onClick : undefined}>
+              {useReactRouterLinks ? <a href={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
+                {item.icon}{item.label}
+              </a>:
+              <Link to={item.onClick ? '#': item.link} className='dropdown-item'>
+                {item.icon}{item.label}
+              </Link>
+              }
+            </li>
+          )}
+        </ul>
+      </div>
+    </>
   )
 }
 

@@ -40,8 +40,8 @@ type BaseProps = {
   useLightFooter?: boolean;
   drawerContents?: DrawerInnerProps;
   avatarLogoAltText?: string;
-  avatarLogoUrl?: string,
-  avatarLoginUrl?: string,
+  customAvatarSectionHTML?: JSX.Element;
+  avatarLoginUrl?: string;
   mainContainerClass?: string;
   title?: string;
   baseTitle?: string;
@@ -104,7 +104,8 @@ export function Base ({
   title,
   useReactRouterLinks,
   avatarMenuItems,
-  avatarLoginUrl=avatarDefaultLoginUrl
+  avatarLoginUrl=avatarDefaultLoginUrl,
+  customAvatarSectionHTML
 }: BaseProps) {
   baseTitle && title && setPageTitle(baseTitle, title)
 
@@ -126,6 +127,7 @@ export function Base ({
           drawerContents={drawerContents}
           loginUrl={avatarLoginUrl}
           user={user}
+          customAvatarSectionHTML={customAvatarSectionHTML}
         />
         <div className='main-container'>
           <Breadcrumbs items={breadcrumbItems} />

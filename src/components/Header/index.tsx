@@ -17,9 +17,10 @@ type HeaderProps = {
   loginUrl?: string;
   avatarMenuItems?: Array<AvatarMenuItem>;
   activeLanguage?: string;
+  customAvatarSectionHTML?: JSX.Element;
 }
 
-export function Header({ useReactRouterLinks, topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage, loginUrl }: HeaderProps) {
+export function Header({customAvatarSectionHTML,  useReactRouterLinks, topMenuItems, drawerContents, user, avatarMenuItems, activeLanguage, loginUrl }: HeaderProps) {
 
 
   return (
@@ -28,9 +29,9 @@ export function Header({ useReactRouterLinks, topMenuItems, drawerContents, user
       <Logo />
       <Topmenu menuItems={topMenuItems} />
 
-      {user ? <Avatar user={user} menuItems={avatarMenuItems} useReactRouterLinks={useReactRouterLinks} />: <LoginButton loginURL={loginUrl} />}
+      {user ? <Avatar user={user} customAvatarSectionHTML={customAvatarSectionHTML} menuItems={avatarMenuItems} useReactRouterLinks={useReactRouterLinks} />: <LoginButton loginURL={loginUrl} />}
       {(activeLanguage !== undefined) ? <Language active={activeLanguage} /> : <div style={{width: '50px'}}></div>}
-
+      
     </header>
   )
 }
