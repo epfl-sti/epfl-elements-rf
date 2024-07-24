@@ -72,12 +72,14 @@ export function Avatar({user, customAvatarSectionHTML, menuItems, useReactRouter
         <ul className={`dropdown-menu ${showUserMenu ? "show" : ""}`} aria-labelledby="dropdownMenuButton">
           {((menuItems && menuItems.length>0) ? menuItems : defaultMenuItems).map((item, i) =>
             <li key={`menu-item-${i}`} className='dropdown-item' onClick={item.onClick ? item.onClick : undefined}>
-              {useReactRouterLinks ? <a href={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
-                {item.icon}{item.label}
-              </a>:
-              <Link to={item.onClick ? '#': item.link} className='dropdown-item'>
-                {item.icon}{item.label}
-              </Link>
+              {item.icon}
+              {useReactRouterLinks ?
+              <Link to={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
+                {item.label}
+              </Link>:
+              <a href={item.onClick ? '#': item.link} style={{textDecorationThickness: 2}}>
+                {item.label}
+              </a>
               }
             </li>
           )}
