@@ -39,7 +39,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
-    "sort-objects-array": "^2.0.0",
+    "sort-objects-array": "^3.0.4",
     "universal-cookie": "^7.1.4"
   },
   "devDependencies": {
