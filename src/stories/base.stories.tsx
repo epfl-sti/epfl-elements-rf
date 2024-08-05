@@ -2,7 +2,7 @@ import type { StoryObj } from "@storybook/react";
 import { Base } from "../components/Base";
 
 import { Person, BoxArrowRight } from 'react-bootstrap-icons'
-
+import { Modal } from "../components/Modal";
 
 const meta = {
   title: "Pages/Base",
@@ -221,5 +221,20 @@ export const CustomMainContainerClass: Story = {
     customAvatarSectionHTML: <h4>Custom Avatar Section</h4>,
     avatarLogoAltText: "white space placeholder",
     children: <h4>Test Application</h4>,
+  },
+};
+
+
+export const WithModal: Story = {
+  args: {
+    breadcrumbItems,
+    baseTitle,
+    mainContainerClass: "customClass",
+    title: "Base Component - Default - Custom Class",
+    feedBackEmail: "mykompas_administrators@groupes.epfl.ch",
+    asideMenuItems: [],
+    user,
+    avatarLogoAltText: "white space placeholder",
+    children: <><h4>Test Application</h4><Modal title="Test modal" >test modal body</Modal></>
   },
 };
