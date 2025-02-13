@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import '@epfl/epfl-elements-styles/dist/css/combined.css'
+import '@epfl-sti/epfl-elements-styles/dist/css/combined.css'
 import './index.css'
 
 type CookieconsentProps = {

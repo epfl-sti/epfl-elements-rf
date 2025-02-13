@@ -16,7 +16,7 @@ type CheckboxGroupProps = {
 
 export function CheckboxGroup ({ onChangeFn, title, options, labels, unchecked = [], wrapperClass, containerClass, checkboxLabelClass }: CheckboxGroupProps) {
   const [allState, setAllState] = useState(true)
-  const [groupState, setGroupState] = useState((options || []).reduce(
+  const [groupState, setGroupState] = useState<Record<string, boolean>>((options || []).reduce(
     (options, option) => ({
       ...options,
       [option]: !unchecked.includes(option)
@@ -32,7 +32,7 @@ export function CheckboxGroup ({ onChangeFn, title, options, labels, unchecked =
     }
     const currentSelected = allState === true
       ? ['ALL', ...Object.keys(groupState)]
-      : Object.keys(groupState).filter(x => groupState[x] === true)
+      : Object.keys(groupState).filter(x => groupState[x as keyof typeof groupState] === true)
     onChangeFn(currentSelected)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allState, groupState])

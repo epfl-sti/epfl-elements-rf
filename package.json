@@ -1,11 +1,13 @@
 {
-  "name": "@epfl/epfl-elements-react",
+  "name": "@epfl-sti/epfl-elements-rf",
   "homepage": "https://gitlab.epfl.ch/sti-nodejs/epfl-elements-react",
   "version": "3.1.0",
   "type": "module",
   "description": "React Storybook UI Components library based on the EPFL Elements specification that you can install and use on your own React projects.",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE.md"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -34,7 +36,7 @@
     "injectStyle": true
   },
   "dependencies": {
-    "@epfl/epfl-elements-styles": "^5.0.0",
+    "@epfl-sti/epfl-elements-styles": "^5.0.1",
     "@storybook/manager-api": "^8.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

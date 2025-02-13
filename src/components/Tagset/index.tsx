@@ -1,7 +1,7 @@
 import { useState, useRef, SetStateAction, Key } from 'react'
 import { Tag } from '../Tag'
 
-import '@epfl/epfl-elements-styles/dist/css/combined.css'
+import '@epfl-sti/epfl-elements-styles/dist/css/combined.css'
 import './styles.css'
 
 import { TagProps } from '../Tag'

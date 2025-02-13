@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import soa from 'sort-objects-array'
 import { Tag } from '../Tag/index'
 
-import '@epfl/epfl-elements-styles/dist/css/combined.css'
+import '@epfl-sti/epfl-elements-styles/dist/css/combined.css'
 import './index.css'
 
 type CallbackProps = {

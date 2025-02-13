@@ -10,7 +10,7 @@ type FilterBoxProps = {
   updateFn?: Callback;
   filterFields?: Array<string>;
   filterLabels?: Array<string>;
-  disabledOptions?: object;
+  disabledOptions?: { [key: string]: any };
   searchbox?: any;
   checkboxLabelClass?: string;
 }
@@ -41,7 +41,7 @@ export function FilterBox ({
   updateFn,
   checkboxLabelClass
 }: FilterBoxProps) {
-  const [boxfilters, setboxFilters] = useState({})
+  const [boxfilters, setboxFilters] = useState<{ [key: string]: any }>({})
   const [filteredCopy, setFilteredCopy] = useState<Array<any> | null>(null)
 
   function setLocalData () {
