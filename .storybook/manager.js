@@ -1,5 +1,5 @@
-import { create } from '@storybook/theming'
-import { addons } from '@storybook/manager-api'
+import { create } from 'storybook/theming'
+import { addons } from 'storybook/manager-api'
 
 const theme = create({
   base: 'light', // this will inherit the base properties of Storybooks'light theme

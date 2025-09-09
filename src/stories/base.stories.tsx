@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { Base } from "../components/Base";
 
 import { Person, BoxArrowRight } from 'react-bootstrap-icons'

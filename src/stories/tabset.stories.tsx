@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { Tabset } from "../components/Tabset";
 import { tabUpdateContents } from "../components/Tabset/helpers";
 

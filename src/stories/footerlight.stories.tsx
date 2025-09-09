@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { FooterLight } from "../components/Footer/FooterLight";
 
 const meta = {

@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { FilterBox } from "../components/Filterbox";
 
 import countries from "./testData.json";

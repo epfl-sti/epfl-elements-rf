@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { Card } from "../components/Card";
 import { CardProps } from "../components/Card";
 

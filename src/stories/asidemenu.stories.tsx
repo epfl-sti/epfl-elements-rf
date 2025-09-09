@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { Asidemenu } from "../components/navigations/asidemenu";
 
 const meta = {
@@ -51,6 +51,7 @@ export const UsingReactRouterLinks: Story = {
     isHome: true,
     isLoading: false,
     useReactRouterLinks: true,
+    foldable: true,
     menuItems: [
       {
         heading: "Mock Main Section",
