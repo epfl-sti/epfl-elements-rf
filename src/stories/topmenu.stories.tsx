@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { Topmenu } from "../components/navigations/topmenu";
 import { TopmenuInnerProps } from "../components/navigations/topmenu";
 

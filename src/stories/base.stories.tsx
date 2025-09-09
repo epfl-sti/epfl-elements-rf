@@ -1,7 +1,7 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { Base } from "../components/Base";
 
-import { Person, BoxArrowRight } from 'react-bootstrap-icons'
+import { BoxArrowRight, Person } from 'react-bootstrap-icons';
 import { Modal } from "../components/Modal";
 
 const meta = {
@@ -45,12 +45,12 @@ export const WithFeedbackAndBSIcons: Story = {
     user,
     avatarMenuItems: [
       {
-        icon: <Person  style={{marginRight: '5px'}} />,
+        icon: <Person style={{ marginRight: '5px' }} />,
         label: "My profile with BS icon",
         link: "/profile",
       },
       {
-        icon: <BoxArrowRight style={{marginRight: '5px'}} />,
+        icon: <BoxArrowRight style={{ marginRight: '5px' }} />,
         label: "Logout with BS icon",
         link: "/logout",
       }
@@ -196,7 +196,7 @@ export const BetaView: Story = {
   },
 };
 
-export const CustomAvatarLogo: Story = {
+export const LoggedOutLogo: Story = {
   args: {
     breadcrumbItems,
     baseTitle,

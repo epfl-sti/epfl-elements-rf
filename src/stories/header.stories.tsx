@@ -1,6 +1,6 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
+import { Star } from "react-bootstrap-icons";
 import { Header } from "../components/Header";
-
 const meta = {
   title: "Organisms/Header",
   component: Header,
@@ -30,11 +30,17 @@ Default.args = {
     sciper: "00000",
     photoUrl: "https://avatars.githubusercontent.com/u/12231812",
   },
-  logOutUrl: "https://tequila.epfl.ch/logout",
+  logoutUrl: "https://tequila.epfl.ch/logout",
+  avatarMenuItems: [{
+    icon: <Star />,
+    label: "Test item",
+    link: "",
+    onClick: () => { alert("Clicked") }
+  }],
 };
 
-export const CustomAvatarLogo: Story = {};
-CustomAvatarLogo.args = {
+export const LoggedOutLogo: Story = {};
+LoggedOutLogo.args = {
   topMenuItems: [
     { link: "https://www.epfl.ch/about/", anchor: "About" },
     { link: "https://www.epfl.ch/education", anchor: "Education" },
@@ -47,14 +53,8 @@ CustomAvatarLogo.args = {
     link: "https://www.epfl.ch",
     anchor: "Go to main site",
   },
-  user: {
-    firstName: "Juan",
-    lastName: "Convers",
-    sciper: "00000",
-    photoUrl: "https://avatars.githubusercontent.com/u/12231812",
-  },
-  logOutUrl: "https://tequila.epfl.ch/logout",
-  avatarLogoUrl:
-    "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
-  avatarLogoAltText: "white space placeholder",
+
+  logoutUrl: "https://tequila.epfl.ch/logout",
+  avatarMenuItems: [],
+  loginAction: () => { alert("Login action clicked") },
 };

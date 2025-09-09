@@ -1,4 +1,4 @@
-import type { StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 import { Tagset } from "../components/Tagset";
 
 import { TagsetProps } from "../components/Tagset";
