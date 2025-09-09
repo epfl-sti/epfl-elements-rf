@@ -12,7 +12,7 @@ import setPageTitle from '../utils/setPageTitle'
 // Props import
 import { BreadcrumbsItemProps } from '../Breadcrumbs'
 import { DrawerInnerProps } from '../Drawer'
-import { AsidemenuItemsProps } from '../navigations/asidemenu'
+import { AsidemenuProps } from '../navigations/asidemenu'
 import { AvatarMenuItem } from '../navigations/avatar'
 import { TopmenuInnerProps } from '../navigations/topmenu'
 // import { MenuItemProps } from '../navigations/mainMenu'
@@ -49,7 +49,7 @@ type BaseProps = {
   mainContainerClass?: string;
   title?: string;
   baseTitle?: string;
-  asideMenuItems?: Array<AsidemenuItemsProps>;
+  asideMenuItems?: Array<AsidemenuProps>;
   avatarMenuItems?: Array<AvatarMenuItem>;
   // mainMenuItems?: Array<MenuItemProps>;
   useReactRouterLinks?: boolean;
