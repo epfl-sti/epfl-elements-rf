@@ -2,8 +2,9 @@ import '@epfl-sti/epfl-elements-styles/dist/css/combined.css'
 import { AuthenticatedBaseUser } from '../Base'
 import { Drawer, DrawerInnerProps } from '../Drawer/'
 import { Logo } from '../Logo/'
-import { Avatar, AvatarMenuItem, LoginButton } from '../navigations/avatar'
+import { Avatar, AvatarMenuItem } from '../navigations/avatar'
 import { Language } from '../navigations/language'
+import LoginButton from '../navigations/LoginButton'
 import { Topmenu } from '../navigations/topmenu'
 
 type HeaderProps = {
