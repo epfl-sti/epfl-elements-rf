@@ -12,8 +12,8 @@ import setPageTitle from '../utils/setPageTitle'
 // Props import
 import { BreadcrumbsItemProps } from '../Breadcrumbs'
 import { DrawerInnerProps } from '../Drawer'
-import { AsidemenuProps } from '../navigations/asidemenu'
 import { AvatarMenuItem } from '../navigations/avatar'
+import { AsidemenuItemsProps } from '../navigations/MenuItem'
 import { TopmenuInnerProps } from '../navigations/topmenu'
 // import { MenuItemProps } from '../navigations/mainMenu'
 
@@ -49,7 +49,8 @@ type BaseProps = {
   mainContainerClass?: string;
   title?: string;
   baseTitle?: string;
-  asideMenuItems?: Array<AsidemenuProps>;
+  asideMenuItems?: Array<AsidemenuItemsProps>;
+  asideMenuFoldable?: boolean;
   avatarMenuItems?: Array<AvatarMenuItem>;
   // mainMenuItems?: Array<MenuItemProps>;
   useReactRouterLinks?: boolean;
@@ -99,6 +100,7 @@ export function Base({
   isLoading = false,
   isBeta = false,
   asideMenuItems,
+  asideMenuFoldable = false,
   topMenuItems = defaultTopMenuItems,
   breadcrumbItems = defaultBreadcrumbItems,
   drawerContents = defaultDrawerContents,
@@ -114,6 +116,7 @@ export function Base({
   avatarLogoutUrl = avatarDefaultLogoutUrl, // used only for default menu items
   avatarProfileUrl = avatarDefaultProfileUrl, // used only for default menu items
   customAvatarSectionHTML,
+
 }: BaseProps) {
   baseTitle && title && setPageTitle(baseTitle, title);
 
@@ -154,6 +157,7 @@ export function Base({
                 homeLink={homeLink}
                 homeAnchor={homeAnchor}
                 useReactRouterLinks={useReactRouterLinks}
+                foldable={asideMenuFoldable}
               />
             )}
             {/* {mainMenuItems &&
