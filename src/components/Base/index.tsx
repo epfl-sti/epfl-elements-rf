@@ -100,7 +100,7 @@ export function Base({
   isLoading = false,
   isBeta = false,
   asideMenuItems,
-  asideMenuFoldable = true,
+  asideMenuFoldable = false,
   topMenuItems = defaultTopMenuItems,
   breadcrumbItems = defaultBreadcrumbItems,
   drawerContents = defaultDrawerContents,
