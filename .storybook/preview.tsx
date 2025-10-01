@@ -1,0 +1,26 @@
+import type { Preview } from "@storybook/react-vite";
+
+import React from "react";
+import { MemoryRouter } from "react-router-dom";
+
+import '../src/styles/overrides.css';
+
+export const decorators = [
+  (Story: any) => (
+    <MemoryRouter initialEntries={['/']}>
+      <Story />
+    </MemoryRouter>
+  ),
+];
+
+const preview: Preview = {
+  parameters: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+  },
+};
+export default preview;
