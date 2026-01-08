@@ -1,7 +1,7 @@
 import type { StoryObj } from "@storybook/react-vite";
 import { Base } from "../components/Base";
 
-import { BoxArrowRight, Person } from 'react-bootstrap-icons';
+import { BoxArrowRight, Person } from "react-bootstrap-icons";
 import { Modal } from "../components/Modal";
 
 const meta = {
@@ -29,10 +29,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-  },
+  args: {},
 };
-
 
 // Demo uses Bootstrap Icons
 export const WithFeedbackAndBSIcons: Story = {
@@ -45,15 +43,15 @@ export const WithFeedbackAndBSIcons: Story = {
     user,
     avatarMenuItems: [
       {
-        icon: <Person style={{ marginRight: '5px' }} />,
+        icon: <Person style={{ marginRight: "5px" }} />,
         label: "My profile with BS icon",
         link: "/profile",
       },
       {
-        icon: <BoxArrowRight style={{ marginRight: '5px' }} />,
+        icon: <BoxArrowRight style={{ marginRight: "5px" }} />,
         label: "Logout with BS icon",
         link: "/logout",
-      }
+      },
     ],
     children: <h4>Test Application</h4>,
   },
@@ -85,6 +83,38 @@ export const WithReactLinks: Story = {
           { anchor: "Test Item 2", link: `#` },
         ],
         submenus: [],
+      },
+    ],
+    user,
+    useReactRouterLinks: true,
+    children: <h4>Test Application (light footer)</h4>,
+  },
+};
+
+export const WithFoldableLinks: Story = {
+  args: {
+    breadcrumbItems,
+    baseTitle,
+    asideMenuFoldable: true,
+    useLightFooter: true,
+    title: "Base Component - Light footer",
+    asideMenuItems: [
+      {
+        useReactRouterLinks: true,
+        heading: "Main menu",
+        menus: [
+          { anchor: "Hello", link: "/" },
+          { anchor: "HelloTabs", link: "/hellotabs" },
+          { anchor: "HelloVisualizations", link: "/hellovisualizations" },
+        ],
+      },{
+        useReactRouterLinks: true,
+        heading: "Second menu",
+        menus: [
+          { anchor: "Hi!", link: "/" },
+          { anchor: "HelloTabs", link: "/hellotabs" },
+          { anchor: "HelloVisualizations", link: "/hellovisualizations" },
+        ],
       },
     ],
     user,
@@ -224,7 +254,6 @@ export const CustomMainContainerClass: Story = {
   },
 };
 
-
 export const WithModal: Story = {
   args: {
     breadcrumbItems,
@@ -235,6 +264,11 @@ export const WithModal: Story = {
     asideMenuItems: [],
     user,
     avatarLogoAltText: "white space placeholder",
-    children: <><h4>Test Application</h4><Modal title="Test modal" >test modal body</Modal></>
+    children: (
+      <>
+        <h4>Test Application</h4>
+        <Modal title="Test modal">test modal body</Modal>
+      </>
+    ),
   },
 };
