@@ -119,7 +119,7 @@ export const WithFoldableLinks: Story = {
     ],
     user,
     useReactRouterLinks: true,
-    children: <h4>Test Application (light footer)</h4>,
+    children: <h4>Test Application with Foldable menus</h4>,
   },
 };
 
