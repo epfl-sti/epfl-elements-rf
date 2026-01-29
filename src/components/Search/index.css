@@ -4,6 +4,7 @@
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
+  position: relative;
 }
 
 .search .dropdown-toggle {
@@ -20,11 +21,14 @@
   display: none;
 }
 
-/* Dropdown menu: align with toggle on same horizontal line */
+/* Dropdown menu: positioned to appear next to icon without moving it */
 .search .dropdown-menu {
   z-index: 1;
   margin-top: 0;
-  position: static !important;
+  margin-left: 0;
+  position: absolute !important;
+  left: 100%;
+  top: 0;
   transform: none !important;
   display: inline-flex !important;
 }
