@@ -81,7 +81,7 @@ form.search-mobile-form {
     left: 0;
     width: 100%;
     height: 3.75rem; /* ~60px */
-    background: #000;
+    background: #212121;
     z-index: 1000;
   }
   
@@ -92,7 +92,7 @@ form.search-mobile-form {
 
   .search-mobile .form-control {
     padding: 0 0 0 0.4rem;
-    background: #000;
+    background: #212121;
     border: 0;
     color: #fff;
     box-shadow: none !important;
@@ -110,7 +110,7 @@ form.search-mobile-form {
   }
 
   .search-mobile .input-group-text {
-    background: #000;
+    background: #212121;
     border-radius: 0;
     border: 0;
   }
