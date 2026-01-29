@@ -4,9 +4,6 @@ import { Search, SearchMobile } from "../components/Search";
 const meta = {
   title: "Molecules/Search",
   tags: ["docsPage"],
-  parameters: {
-    layout: "centered",
-  },
 };
 
 export default meta;
@@ -21,7 +18,6 @@ export const Classic: StoryObj<typeof Search> = {
     submitLabel: "Submit",
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      console.log("Search submitted");
     },
   },
 };
@@ -46,10 +42,9 @@ export const Mobile: StoryObj<typeof SearchMobile> = {
     closeLabel: "Hide search form",
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      console.log("Mobile search submitted");
     },
     onToggle: (open: boolean) => {
-      console.log("Mobile search", open ? "opened" : "closed");
+      // Toggle handler
     },
   },
 };

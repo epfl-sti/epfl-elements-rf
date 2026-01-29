@@ -53,6 +53,11 @@
 
 /* Mobile search: exact EPFL implementation from https://github.com/epfl-si/elements */
 
+/* Mobile search form wrapper - stays in header flow */
+form.search-mobile-form {
+  flex: 0 1 auto;
+}
+
 /* Toggle icon: small 16px as per EPFL */
 .search-mobile-toggle .icon {
   width: 16px;
@@ -64,21 +69,25 @@
   display: none;
 }
 
-/* When open and below xl breakpoint, show as absolute positioned bar at top */
+/* Mobile search behavior at mobile breakpoint */
 @media (max-width: 1199.98px) {
+  /* The actual search bar when open - fixed at top of viewport */
   .search-mobile.search-mobile-open {
     display: flex;
     flex-flow: row nowrap;
-    position: absolute;
+    position: fixed; /* Fixed to viewport, stays at top */
     top: 0;
     right: 0;
-    bottom: auto;
     left: 0;
     width: 100%;
-    height: 3.75rem; /* ~60px, same as header height */
+    height: 3.75rem; /* ~60px */
     background: #000;
-    transition: bottom 0.3s;
     z-index: 1000;
+  }
+  
+  /* Push header content down when search is open */
+  .header:has(.search-mobile-open) {
+    margin-top: 3.75rem;
   }
 
   .search-mobile .form-control {
