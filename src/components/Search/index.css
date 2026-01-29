@@ -1,0 +1,127 @@
+/* Classic search: exact EPFL implementation from https://github.com/epfl-si/elements */
+
+.search {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search .dropdown-toggle {
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide Bootstrap dropdown caret */
+.search .dropdown-toggle::after {
+  display: none;
+}
+
+/* Dropdown menu: align with toggle on same horizontal line */
+.search .dropdown-menu {
+  z-index: 1;
+  margin-top: 0;
+  position: static !important;
+  transform: none !important;
+  display: inline-flex !important;
+}
+
+/* When dropdown is not shown, hide it */
+.search .dropdown-menu:not(.show) {
+  display: none !important;
+}
+
+.search .search-form {
+  display: flex;
+  border: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  width: 12rem;
+  box-shadow: none !important;
+}
+
+.search .input-group {
+  align-items: center;
+}
+
+/* Mobile search: exact EPFL implementation from https://github.com/epfl-si/elements */
+
+/* Toggle icon: small 16px as per EPFL */
+.search-mobile-toggle .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Mobile search bar: hidden by default */
+.search-mobile {
+  display: none;
+}
+
+/* When open and below xl breakpoint, show as absolute positioned bar at top */
+@media (max-width: 1199.98px) {
+  .search-mobile.search-mobile-open {
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 3.75rem; /* ~60px, same as header height */
+    background: #000;
+    transition: bottom 0.3s;
+    z-index: 1000;
+  }
+
+  .search-mobile .form-control {
+    padding: 0 0 0 0.4rem;
+    background: #000;
+    border: 0;
+    color: #fff;
+    box-shadow: none !important;
+    border-radius: 0;
+    margin-block: 0.25rem;
+  }
+
+  .search-mobile .form-control::placeholder {
+    color: #d1d1d1;
+  }
+
+  .search-mobile .form-control:focus-visible {
+    outline-color: white !important;
+    outline-offset: 0;
+  }
+
+  .search-mobile .input-group-text {
+    background: #000;
+    border-radius: 0;
+    border: 0;
+  }
+
+  .search-mobile .icon {
+    color: #d1d1d1;
+  }
+
+  .search-mobile .searchform-controller .icon {
+    display: block;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .search-mobile .search-mobile-close {
+    align-items: center;
+    display: flex;
+    margin: 0 0.9rem;
+  }
+
+  .search-mobile .search-mobile-close:hover .icon {
+    color: #fff;
+  }
+}
