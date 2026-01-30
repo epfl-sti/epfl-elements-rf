@@ -283,11 +283,8 @@ export const WithSearch: Story = {
     searchPlaceholder: "Search the site",
     searchLabel: "Search",
     searchSubmitLabel: "Submit",
-    onSearchSubmit: (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      const formData = new FormData(e.currentTarget);
-      const searchQuery = formData.get('search');
-      alert(`Search query: ${searchQuery}`);
+    onSearchSubmit: (query: string) => {
+      alert(`Search query: ${query}`);
     },
     children: (
       <>

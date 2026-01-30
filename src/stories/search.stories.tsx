@@ -20,8 +20,8 @@ export const Classic: StoryObj<typeof Search> = {
     placeholder: "Search",
     label: "Search the site",
     submitLabel: "Submit",
-    onSubmit: (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+    onSubmit: (query: string) => {
+      // Handle search query
     },
   },
   parameters: {
@@ -62,8 +62,8 @@ export const Mobile: StoryObj<typeof SearchMobile> = {
     label: "Search the site",
     toggleLabel: "Show / hide search form",
     closeLabel: "Hide search form",
-    onSubmit: (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+    onSubmit: (query: string) => {
+      // Handle search query
     },
     onToggle: (open: boolean) => {
       // Toggle handler

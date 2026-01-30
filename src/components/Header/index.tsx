@@ -24,7 +24,7 @@ type HeaderProps = {
   searchPlaceholder?: string;
   searchLabel?: string;
   searchSubmitLabel?: string;
-  onSearchSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSearchSubmit?: (query: string) => void;
   showSearch?: boolean;
 };
 
