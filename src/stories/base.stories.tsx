@@ -272,3 +272,29 @@ export const WithModal: Story = {
     ),
   },
 };
+
+export const WithSearch: Story = {
+  args: {
+    breadcrumbItems,
+    baseTitle,
+    title: "Base Component - With Search",
+    user,
+    showSearch: true,
+    searchPlaceholder: "Search the site",
+    searchLabel: "Search",
+    searchSubmitLabel: "Submit",
+    onSearchSubmit: (query: string) => {
+      alert(`Search query: ${query}`);
+    },
+    children: (
+      <>
+        <h4>Test Application with Search</h4>
+        <p>Resize the window to see the search switch between desktop and mobile views at 1200px.</p>
+        <ul>
+          <li><strong>Desktop (≥1200px):</strong> Dropdown search with submit button</li>
+          <li><strong>Mobile (&lt;1200px):</strong> Toggle search with expandable input bar</li>
+        </ul>
+      </>
+    ),
+  },
+};

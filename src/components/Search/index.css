@@ -1,0 +1,140 @@
+/* Classic search: exact EPFL implementation from https://github.com/epfl-si/elements */
+
+.search {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.search .dropdown-toggle {
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide Bootstrap dropdown caret */
+.search .dropdown-toggle::after {
+  display: none;
+}
+
+/* Dropdown menu: positioned to appear next to icon without moving it */
+.search .dropdown-menu {
+  z-index: 1;
+  margin-top: 0;
+  margin-left: 0;
+  position: absolute !important;
+  left: 100%;
+  top: 0;
+  transform: none !important;
+  display: inline-flex !important;
+}
+
+/* When dropdown is not shown, hide it */
+.search .dropdown-menu:not(.show) {
+  display: none !important;
+}
+
+.search .search-form {
+  display: flex;
+  border: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  width: 12rem;
+  box-shadow: none !important;
+}
+
+.search .input-group {
+  align-items: center;
+}
+
+/* Mobile search: exact EPFL implementation from https://github.com/epfl-si/elements */
+
+/* Mobile search form wrapper - stays in header flow */
+form.search-mobile-form {
+  flex: 0 1 auto;
+}
+
+/* Toggle icon: small 16px as per EPFL */
+.search-mobile-toggle .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Mobile search bar: hidden by default */
+.search-mobile {
+  display: none;
+}
+
+/* Mobile search behavior at mobile breakpoint */
+@media (max-width: 1199.98px) {
+  /* The actual search bar when open - fixed at top of viewport */
+  .search-mobile.search-mobile-open {
+    display: flex;
+    flex-flow: row nowrap;
+    position: fixed; /* Fixed to viewport, stays at top */
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 3.75rem; /* ~60px */
+    background: #212121;
+    z-index: 1000;
+  }
+  
+  /* Push header content down when search is open */
+  .header:has(.search-mobile-open) {
+    margin-top: 3.75rem;
+  }
+
+  .search-mobile .form-control {
+    padding: 0 0 0 0.4rem;
+    background: #212121;
+    border: 0;
+    color: #fff;
+    box-shadow: none !important;
+    border-radius: 0;
+    margin-block: 0.25rem;
+  }
+
+  .search-mobile .form-control::placeholder {
+    color: #d1d1d1;
+  }
+
+  .search-mobile .form-control:focus-visible {
+    outline-color: white !important;
+    outline-offset: 0;
+  }
+
+  .search-mobile .input-group-text {
+    background: #212121;
+    border-radius: 0;
+    border: 0;
+  }
+
+  .search-mobile .icon {
+    color: #d1d1d1;
+  }
+
+  .search-mobile .searchform-controller .icon {
+    display: block;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .search-mobile .search-mobile-close {
+    align-items: center;
+    display: flex;
+    margin: 0 0.9rem;
+  }
+
+  .search-mobile .search-mobile-close:hover .icon {
+    color: #fff;
+  }
+}

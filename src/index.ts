@@ -14,6 +14,7 @@ export { Fullwidthteaser } from "./components/Fullwidthteaser";
 export { Hero } from "./components/Hero";
 export { Loader } from "./components/Loader";
 export { Logo } from "./components/Logo";
+export { Search, SearchMobile } from "./components/Search";
 export { Modal } from "./components/Modal";
 export { Metabox } from "./components/Metabox";
 export { Table } from "./components/Table";

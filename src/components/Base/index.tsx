@@ -54,6 +54,12 @@ type BaseProps = {
   avatarMenuItems?: Array<AvatarMenuItem>;
   // mainMenuItems?: Array<MenuItemProps>;
   useReactRouterLinks?: boolean;
+  searchAction?: string;
+  searchPlaceholder?: string;
+  searchLabel?: string;
+  searchSubmitLabel?: string;
+  onSearchSubmit?: (query: string) => void;
+  showSearch?: boolean;
 };
 
 const defaultTopMenuItems = [
@@ -116,7 +122,12 @@ export function Base({
   avatarLogoutUrl = avatarDefaultLogoutUrl, // used only for default menu items
   avatarProfileUrl = avatarDefaultProfileUrl, // used only for default menu items
   customAvatarSectionHTML,
-
+  searchAction,
+  searchPlaceholder,
+  searchLabel,
+  searchSubmitLabel,
+  onSearchSubmit,
+  showSearch = true,
 }: BaseProps) {
   baseTitle && title && setPageTitle(baseTitle, title);
 
@@ -143,6 +154,12 @@ export function Base({
           logoutUrl={avatarLogoutUrl}
           profileUrl={avatarProfileUrl}
           loginAction={loginAction}
+          searchAction={searchAction}
+          searchPlaceholder={searchPlaceholder}
+          searchLabel={searchLabel}
+          searchSubmitLabel={searchSubmitLabel}
+          onSearchSubmit={onSearchSubmit}
+          showSearch={showSearch}
         />
         <div className="main-container">
           <Breadcrumbs items={breadcrumbItems} />
