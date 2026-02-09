@@ -107,9 +107,9 @@ export const WithFoldableLinks: Story = {
           { anchor: "HelloTabs", link: "/hellotabs" },
           { anchor: "HelloVisualizations", link: "/hellovisualizations" },
         ],
-      },{
+      }, {
         useReactRouterLinks: true,
-        heading: "Second menu",
+        heading: <>Second menu <span className="badge badge-danger">NEW</span></>,
         menus: [
           { anchor: "Hi!", link: "/" },
           { anchor: "HelloTabs", link: "/hellotabs" },
