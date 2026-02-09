@@ -1,0 +1,104 @@
+import{j as i}from"./iframe-C7IqK5wC.js";import{useMDXComponents as o}from"./index-I1Lrk6S-.js";import{M as r}from"./blocks-C4zFPqFO.js";import"./preload-helper-D9Z9MdNV.js";import"./index-b8M2XHtV.js";import"./index-E-VJUjW2.js";function n(e){const t={h1:"h1",p:"p",...o(),...e.components};return i.jsxs(i.Fragment,{children:[i.jsx(r,{title:"Documentation/Introduction"}),`
+`,i.jsx("style",{children:`
+  .subheading {
+    --mediumdark: '#999999';
+    font-weight: 900;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 6px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  .link-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+  }
+
+  @media (min-width: 620px) {
+    .link-list {
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (-ms-high-contrast:none) {
+  .link-list {
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr 1fr;
+    }
+  }
+
+  .link-item {
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .link-item:hover {
+    border-color: #1EA7FD50;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+
+  .link-item:active {
+    border-color: #1EA7FD;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .link-item strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .link-item img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    flex: none;
+  }
+
+  .link-item span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .tip {
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 700;
+    background: #E7FDD8;
+    color: #66BF3C;
+    padding: 4px 12px;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  .tip-wrapper {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .tip-wrapper code {
+    font-size: 12px;
+    display: inline-block;
+  }
+`}),`
+`,i.jsx(t.h1,{id:"epfl-elements-react-foundation-rf-library",children:"EPFL Elements React Foundation (RF) Library"}),`
+`,i.jsx(t.p,{children:"This repository hosts a React Storybook UI components library based on the EPFL Elements specification (https://epfl-si.github.io/elements/#/), designed for easy integration into your React projects. The original components were initially developed for an internal tool and later generalized in the library's first iteration. However, the initial version included some heavy dependencies (e.g., Plotly visualizations). This library aims to stay as close as possible to the Elements specification while remaining lightweight and efficient."})]})}function c(e={}){const{wrapper:t}={...o(),...e.components};return t?i.jsx(t,{...e,children:i.jsx(n,{...e})}):n(e)}export{c as default};
