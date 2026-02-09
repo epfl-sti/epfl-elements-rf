@@ -1,29 +1,23 @@
-import { useState } from "react";
 import { ChevronDown, ChevronRight } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-
+import { useFoldState } from "../utils/storage";
 
 export type AsindeMenuSingleItemProps = {
     link?: string;
-    anchor?: string;
+    anchor?: React.ReactNode;
 };
 
 export type AsidemenuItemsProps = {
     heading?: React.ReactNode;
+    alias?: string; // Optional alias for localStorage key generation if heading is not a string
     menus?: Array<AsindeMenuSingleItemProps>;
     submenus?: Array<AsidemenuItemsProps>;
     useReactRouterLinks?: boolean;
     foldable?: boolean;
 };
 
-
-const MenuItem = ({ heading, menus, submenus, useReactRouterLinks, foldable = false }: AsidemenuItemsProps) => {
-    const [isOpen, setIsOpen] = useState(true);
-
-    const toggleOpen = () => {
-        if (!foldable) return;
-        setIsOpen(!isOpen);
-    };
+const MenuItem = ({ alias, heading, menus, submenus, useReactRouterLinks, foldable = false }: AsidemenuItemsProps) => {
+    const { isOpen, toggle } = useFoldState(heading, alias, foldable);
 
     const chevronStyle = {
         marginTop: "-2px",
@@ -33,7 +27,7 @@ const MenuItem = ({ heading, menus, submenus, useReactRouterLinks, foldable = fa
     return (
         <li>
             {foldable ? (
-                <a onClick={toggleOpen}>
+                <a onClick={toggle}>
                     {isOpen ? <ChevronDown style={chevronStyle} /> : <ChevronRight style={chevronStyle} />} {heading}
                 </a>
             ) : (
