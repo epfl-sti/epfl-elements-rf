@@ -65,7 +65,7 @@ const MenuItem = ({ alias, heading, menus, submenus, useReactRouterLinks, foldab
         if (!foldable) return;
         const newOpenState = !isOpen;
         setFoldState(heading, alias, newOpenState);
-        setIsOpen(!isOpen);
+        setIsOpen(newOpenState);
     };
 
     const chevronStyle = {
