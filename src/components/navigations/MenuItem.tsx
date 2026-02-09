@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { ChevronDown, ChevronRight } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-import { safeLocalStorage, slugify } from "../utils/storage";
+import { useFoldState } from "../utils/storage";
 
 export type AsindeMenuSingleItemProps = {
     link?: string;
@@ -17,56 +16,8 @@ export type AsidemenuItemsProps = {
     foldable?: boolean;
 };
 
-const SIDE_MENU_FOLD_STATE_ITEM = "asidemenu-fold-state";
-
-const getKey = (heading: React.ReactNode, alias: string): string => {
-    const identifier = typeof heading === "string" ? slugify(heading) : alias;
-
-    if (!identifier) {
-        console.warn('MenuItem: Neither string heading nor alias provided. Using fallback key.');
-        return `asidemenu-fallback-${Date.now()}-open`;
-    }
-
-    return `asidemenu-${identifier}-open`;
-}
-
-const getFoldState = (heading: React.ReactNode, alias: string): boolean => {
-    try {
-        const storedState = safeLocalStorage.getItem(SIDE_MENU_FOLD_STATE_ITEM);
-        if (storedState) {
-            const foldState = JSON.parse(storedState);
-            return foldState[getKey(heading, alias)] === true;
-        }
-    } catch (error) {
-        console.error('Failed to parse fold state from localStorage:', error);
-    }
-    return false; // Default to closed if no state is stored
-}
-
-const setFoldState = (heading: React.ReactNode, alias: string, isOpen: boolean): void => {
-    try {
-        const storedState = safeLocalStorage.getItem(SIDE_MENU_FOLD_STATE_ITEM);
-        const foldState = storedState ? JSON.parse(storedState) : {};
-        foldState[getKey(heading, alias)] = isOpen;
-        safeLocalStorage.setItem(SIDE_MENU_FOLD_STATE_ITEM, JSON.stringify(foldState));
-    } catch (error) {
-        console.error('Failed to save fold state to localStorage:', error);
-    }
-}
-
 const MenuItem = ({ alias, heading, menus, submenus, useReactRouterLinks, foldable = false }: AsidemenuItemsProps) => {
-
-
-    const [isOpen, setIsOpen] = useState(
-        foldable ? getFoldState(heading, alias) : true
-    );
-
-    const toggleOpen = () => {
-        if (!foldable) return;
-        const newOpenState = !isOpen;
-        setFoldState(heading, alias, newOpenState);
-        setIsOpen(newOpenState);
-    };
+    const { isOpen, toggle } = useFoldState(heading, alias, foldable);
 
     const chevronStyle = {
         marginTop: "-2px",
@@ -76,7 +27,7 @@ const MenuItem = ({ alias, heading, menus, submenus, useReactRouterLinks, foldab
     return (
         <li>
             {foldable ? (
-                <a onClick={toggleOpen}>
+                <a onClick={toggle}>
                     {isOpen ? <ChevronDown style={chevronStyle} /> : <ChevronRight style={chevronStyle} />} {heading}
                 </a>
             ) : (
