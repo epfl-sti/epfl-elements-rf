@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronRight } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+import { safeLocalStorage, slugify } from "../utils/storage";
 
 export type AsindeMenuSingleItemProps = {
     link?: string;
@@ -18,46 +19,52 @@ export type AsidemenuItemsProps = {
 
 const SIDE_MENU_FOLD_STATE_ITEM = "asidemenu-fold-state";
 
-const slugify = (text: string) => {
-    return text
-        .toString()
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, "-") // Replace spaces with -  
+const getKey = (heading: React.ReactNode, alias: string): string => {
+    const identifier = typeof heading === "string" ? slugify(heading) : alias;
+
+    if (!identifier) {
+        console.warn('MenuItem: Neither string heading nor alias provided. Using fallback key.');
+        return `asidemenu-fallback-${Date.now()}-open`;
+    }
+
+    return `asidemenu-${identifier}-open`;
 }
 
-const getKey = (heading: React.ReactNode, key: number | string) => {
-    return `asidemenu-${typeof heading === "string" ? slugify(heading) : slugify(key.toString())}-open`;
-}
-
-const getFoldState = (heading: React.ReactNode, key: number | string) => {
-    const storedState = localStorage.getItem(SIDE_MENU_FOLD_STATE_ITEM);
-    if (storedState) {
-        const foldState = JSON.parse(storedState);
-        return foldState[getKey(heading, key)] === true;
+const getFoldState = (heading: React.ReactNode, alias: string): boolean => {
+    try {
+        const storedState = safeLocalStorage.getItem(SIDE_MENU_FOLD_STATE_ITEM);
+        if (storedState) {
+            const foldState = JSON.parse(storedState);
+            return foldState[getKey(heading, alias)] === true;
+        }
+    } catch (error) {
+        console.error('Failed to parse fold state from localStorage:', error);
     }
     return false; // Default to closed if no state is stored
 }
 
-const setFoldState = (heading: React.ReactNode, key: number | string, isOpen: boolean) => {
-    const storedState = localStorage.getItem(SIDE_MENU_FOLD_STATE_ITEM);
-    const foldState = storedState ? JSON.parse(storedState) : {};
-    foldState[getKey(heading, key)] = isOpen;
-    localStorage.setItem(SIDE_MENU_FOLD_STATE_ITEM, JSON.stringify(foldState));
+const setFoldState = (heading: React.ReactNode, alias: string, isOpen: boolean): void => {
+    try {
+        const storedState = safeLocalStorage.getItem(SIDE_MENU_FOLD_STATE_ITEM);
+        const foldState = storedState ? JSON.parse(storedState) : {};
+        foldState[getKey(heading, alias)] = isOpen;
+        safeLocalStorage.setItem(SIDE_MENU_FOLD_STATE_ITEM, JSON.stringify(foldState));
+    } catch (error) {
+        console.error('Failed to save fold state to localStorage:', error);
+    }
 }
 
 const MenuItem = ({ alias, heading, menus, submenus, useReactRouterLinks, foldable = false }: AsidemenuItemsProps) => {
 
 
-
     const [isOpen, setIsOpen] = useState(
-        foldable ? getFoldState(heading, alias || "") : true
+        foldable ? getFoldState(heading, alias) : true
     );
 
     const toggleOpen = () => {
         if (!foldable) return;
         const newOpenState = !isOpen;
-        setFoldState(heading, alias || "", newOpenState);
+        setFoldState(heading, alias, newOpenState);
         setIsOpen(!isOpen);
     };
 

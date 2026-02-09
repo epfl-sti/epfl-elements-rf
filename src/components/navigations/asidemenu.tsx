@@ -30,9 +30,7 @@ export function Asidemenu({
     return (menuItems || []).map((item, i) => (
       <MenuItem
         key={i}
-        heading={item.heading}
-        menus={item.menus}
-        submenus={item.submenus}
+        {...item}
         foldable={foldable}
         useReactRouterLinks={useReactRouterLinks}
       />
